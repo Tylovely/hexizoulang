@@ -1,37 +1,519 @@
-<!DOCTYPE html> <html lang="zh-CN"> <head> <meta charset="utf-8" /> <meta name="viewport" content="width=device-width, initial-scale=1" /> <title>甘肃六日自助旅行手册（初稿，离线可用）</title> <style> :root { --bg: #0f111a; --card: #1b1f2b; --text: #e8e8e8; --muted: #a6a6a6; --accent: #2bd77f; --danger: #ff6b6b; --green: #34c759; --blue: #4ea8ff; --start: #ffd166; --end: #06d6a0; } @media (prefers-color-scheme: light) { :root { --bg: #f6f7fb; --card: #ffffff; --text: #0a0a0a; --muted: #555; } }
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>甘肃 6 日 · 旅行手册</title>
+<style>
+  :root{
+    --bg:#f5f2ec; --card:#ffffff; --ink:#2b2620; --sub:#8a8175;
+    --line:#e6e0d6; --accent:#c4562e; --accent2:#2f6b5e;
+    --day1:#c4562e; --day2:#d98a2b; --day3:#7a9a3d; --day4:#2f6b5e;
+    --day5:#3a6ea5; --day6:#8a5a9e;
+    --shadow:0 4px 20px rgba(60,40,20,.08);
+  }
+  html[data-theme="dark"]{
+    --bg:#161412; --card:#211e1a; --ink:#ece6dc; --sub:#9a9184;
+    --line:#332e28; --accent:#e07a4e; --accent2:#5fa392;
+    --day1:#e07a4e; --day2:#e0a850; --day3:#a8c25e; --day4:#5fa392;
+    --day5:#6a9ed0; --day6:#b98ac9;
+    --shadow:0 4px 24px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    font-size:15px;line-height:1.6;
+    transition:background .5s,color .5s;
+    padding-bottom:60px;
+  }
+  .wrap{max-width:680px;margin:0 auto;padding:16px}
+  h1{font-size:20px;margin:8px 0 4px;letter-spacing:.5px}
+  .sub{color:var(--sub);font-size:13px;margin-bottom:16px}
+  .card{
+    background:var(--card);border-radius:16px;padding:18px;
+    box-shadow:var(--shadow);margin-bottom:14px;
+  }
+  .card h2{
+    font-size:15px;margin:0 0 12px;letter-spacing:.5px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .card h2::before{
+    content:"";width:4px;height:16px;border-radius:2px;background:var(--accent);
+  }
 
-html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, "PingFang SC", "Noto Sans CJK SC", sans-serif; line-height: 1.4; } .container { max-width: 980px; margin: 0 auto; padding: 12px 12px 40px; } .card { background: var(--card); border-radius: 12px; padding: 14px 16px; box-shadow: 0 1px 0 rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); margin-bottom: 14px; } h2 { margin: 0 0 8px; font-size: 16px; color: #9be8ff; } .row { display: flex; gap: 12px; flex-wrap: wrap; } .col { flex: 1 1 0; min-width: 260px; }
+  /* 倒计时 */
+  .now-card{
+    background:linear-gradient(135deg,var(--accent),var(--day2));
+    color:#fff;border-radius:16px;padding:20px;margin-bottom:14px;
+    box-shadow:var(--shadow);
+  }
+  html[data-theme="dark"] .now-card{
+    background:linear-gradient(135deg,#8a3d22,#8a6420);
+  }
+  .now-label{font-size:12px;opacity:.85;letter-spacing:1px;text-transform:uppercase}
+  .now-event{font-size:17px;font-weight:600;margin:6px 0 14px}
+  .countdown{display:flex;gap:10px}
+  .cd-unit{flex:1;text-align:center;background:rgba(255,255,255,.15);border-radius:10px;padding:8px 4px}
+  .cd-num{font-size:24px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
+  .cd-lab{font-size:11px;opacity:.85;margin-top:2px}
+  .now-todo{
+    margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.25);
+    font-size:13px;display:flex;gap:8px;align-items:flex-start;
+  }
+  .now-todo .dot{
+    width:6px;height:6px;border-radius:50%;background:#fff;
+    margin-top:7px;flex-shrink:0;
+  }
 
-/* 顶部此刻关注卡片 */ #nowCard { display: grid; grid-template-columns: 1fr; align-items: start; gap: 12px; } .countdown { font-weight: 700; font-size: 28px; letter-spacing: 1px; } .sub { color: var(--muted); font-size: 12.5px; } .todoTop { display: flex; align-items: center; justify-content: space-between; padding: 8px 10px; border-radius: 8px; background: rgba(91, 235, 194, 0.08); border: 1px solid rgba(43,215,127,.25); }
+  /* 地图 */
+  .map-svg{width:100%;height:auto;display:block;border-radius:12px;background:var(--bg)}
+  .map-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;font-size:12px;color:var(--sub)}
+  .lg{display:flex;align-items:center;gap:5px}
+  .lg i{width:10px;height:10px;border-radius:50%;display:inline-block}
 
-/* 行程总览地图（手绘风格 SVG 占位） / .svgMap { width: 100%; height: auto; display: block; overflow: visible; } / 日程列表与待办 */ .dayItem { display: grid; grid-template-columns: 88px 1fr; gap: 12px; align-items: start; } .dateTag { font-weight: 700; color: #0bd; text-align: right; padding-top: 6px; } .dayContent { padding: 10px 12px; background: rgba(255,255,255,.04); border-radius: 8px; border: 1px solid rgba(255,255,255,.08); } .tag { display: inline-block; padding: 2px 6px; border-radius: 999px; font-size: 11px; background: #1b1f2b; color: #9be8ff; border: 1px solid rgba(155,232,255,.3); margin-left: 8px; }
+  /* 票务卡片 */
+  .ticket{
+    border:1px solid var(--line);border-radius:12px;padding:14px;
+    margin-bottom:10px;background:var(--card);
+  }
+  .ticket:last-child{margin-bottom:0}
+  .tk-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+  .tk-type{font-size:11px;color:#fff;background:var(--accent2);padding:2px 8px;border-radius:20px;letter-spacing:.5px}
+  .tk-type.pending{background:var(--sub)}
+  .tk-title{font-size:14px;font-weight:600}
+  .tk-row{display:flex;gap:8px;font-size:13px;color:var(--sub);margin-top:4px}
+  .tk-row b{color:var(--ink);font-weight:500}
 
-.slot { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 12px; background: rgba(43,214,127,.15); color: #9affd6; border: 1px solid rgba(43,214,127,.3); margin-left: 6px; }
+  /* 逐日 */
+  .day{border-left:3px solid var(--line);padding-left:14px;margin-left:6px;margin-bottom:20px;position:relative}
+  .day:last-child{margin-bottom:0}
+  .day-head{display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none}
+  .day-dot{
+    position:absolute;left:-9px;top:2px;width:14px;height:14px;border-radius:50%;
+    border:3px solid var(--bg);
+  }
+  .day-title{font-size:15px;font-weight:600}
+  .day-date{font-size:12px;color:var(--sub)}
+  .day-toggle{margin-left:auto;font-size:11px;color:var(--sub);transition:transform .2s}
+  .day.open .day-toggle{transform:rotate(180deg)}
+  .day-map{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .day.open .day-map{max-height:600px}
+  .day-map-inner{padding:12px 0 4px}
+  .day-route-btn{
+    display:inline-block;margin-top:8px;font-size:12px;color:#fff;
+    background:var(--accent2);padding:6px 14px;border-radius:20px;text-decoration:none;
+  }
+  .ev{display:flex;gap:12px;margin-top:12px;font-size:14px}
+  .ev-time{flex-shrink:0;width:52px;color:var(--sub);font-size:13px;font-variant-numeric:tabular-nums}
+  .ev-body{flex:1}
+  .ev-title{font-weight:500}
+  .ev-note{font-size:12px;color:var(--sub);margin-top:2px}
+  .tag{
+    display:inline-block;font-size:11px;padding:1px 7px;border-radius:20px;
+    margin-left:6px;vertical-align:1px;
+  }
+  .tag.book{background:rgba(196,86,46,.12);color:var(--accent)}
+  .tag.free{background:rgba(47,107,94,.12);color:var(--accent2)}
+  .loc{cursor:pointer;border-bottom:1px dashed var(--sub)}
+  .loc:active{opacity:.6}
 
-.badge { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 12px; background: rgba(0,0,0,.15); color: #fff; margin-left: 6px; }
+  /* 待办 */
+  .todo-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+  .progress-bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:14px}
+  .progress-fill{height:100%;background:var(--accent2);border-radius:3px;transition:width .4s}
+  .todo-item{
+    display:flex;gap:10px;align-items:flex-start;padding:9px 0;
+    border-bottom:1px solid var(--line);cursor:pointer;
+  }
+  .todo-item:last-child{border-bottom:none}
+  .todo-box{
+    width:18px;height:18px;border:2px solid var(--line);border-radius:5px;
+    flex-shrink:0;margin-top:2px;position:relative;transition:all .2s;
+  }
+  .todo-item.done .todo-box{background:var(--accent2);border-color:var(--accent2)}
+  .todo-item.done .todo-box::after{
+    content:"";position:absolute;left:5px;top:1px;width:4px;height:9px;
+    border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg);
+  }
+  .todo-item.done .todo-text{text-decoration:line-through;color:var(--sub)}
+  .todo-text{font-size:14px;flex:1}
+  .sync-hint{font-size:11px;color:var(--sub);text-align:center;margin-top:10px}
 
-/* 待办清单（前端渲染，离线可用） */ #todoList { display: grid; gap: 8px; } .todoItem { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 6px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); } .checkbox { width: 18px; height: 18px; border: 2px solid #9be8ff; border-radius: 4px; display: inline-block; vertical-align: middle; cursor: pointer; } .checkbox.checked { background: #2bd77f; border-color: #2bd77f; } .todoTitle { flex: 1; font-size: 14px; }
+  /* 贴士 */
+  .tips li{font-size:13.5px;margin-bottom:8px;color:var(--ink)}
+  .tips li::marker{color:var(--accent)}
+  ul.tips{padding-left:20px;margin:0}
 
-/* 页脚提示/小工具 */ .tip { font-size: 12.5px; color: var(--muted); }
+  .foot{text-align:center;font-size:11px;color:var(--sub);padding:20px 0 10px}
+</style>
+</head>
+<body>
+<div class="wrap">
 
-/* 链接按钮样式（导航、地图跳转等） */ a.navLink { color: #9be8ff; text-decoration: none; border-bottom: 1px dotted rgba(155,232,255,.5); }
+  <h1>甘肃 6 日</h1>
+  <div class="sub">2026.09.14 — 09.19 · 敦煌 / 嘉峪关 / 武威 / 兰州</div>
 
-/* 小工具：导航链接按钮 */ .navRow { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  <!-- 1. 此刻关注 -->
+  <div class="now-card" id="nowCard">
+    <div class="now-label">此刻关注</div>
+    <div class="now-event" id="nowEvent">加载中…</div>
+    <div class="countdown">
+      <div class="cd-unit"><div class="cd-num" id="cdD">--</div><div class="cd-lab">天</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cdH">--</div><div class="cd-lab">时</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cdM">--</div><div class="cd-lab">分</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cdS">--</div><div class="cd-lab">秒</div></div>
+    </div>
+    <div class="now-todo">
+      <span class="dot"></span>
+      <span id="nowTodo">加载中…</span>
+    </div>
+  </div>
 
-@media (max-width: 720px) { .dayItem { grid-template-columns: 76px 1fr; } } </style> </head> <body> <div class="container"> <!-- 顶部此刻关注卡片 --> <section class="card" id="nowCard" aria-label="此刻关注"> <div style="display:flex; justify-content:space-between; align-items:center;"> <h2>此刻关注</h2> <div class="badge" id="peopleBadge" aria-label="同行人数">3 人</div> </div> <div class="row" style="align-items:stretch;"> <div class="col" style="flex:1;"> <div class="countdown" id="countdown">倒计时：加载中…</div> <div class="sub">下一个行程事件</div> </div> </div> <div class="todoTop" aria-label="当前待办清单第一条"> <span style="font-weight:600;">当前待办</span> <span id="topTodo" class="slot" title="第一条待办项"></span> </div> </section>
+  <!-- 2. 总览地图 -->
+  <div class="card">
+    <h2>行程总览</h2>
+    <svg class="map-svg" viewBox="0 0 340 400" xmlns="http://www.w3.org/2000/svg">
+      <!-- 背景山峦装饰 -->
+      <path d="M0 320 Q60 290 120 315 T240 305 T340 330 L340 400 L0 400 Z" fill="var(--line)" opacity=".5"/>
+      <path d="M0 350 Q80 330 160 348 T340 345 L340 400 L0 400 Z" fill="var(--line)" opacity=".35"/>
 
-<!-- 行程总览地图（手绘风格 SVG 占位） --> <section class="card" aria-label="行程总览地图"> <h2>行程总览地图（按天着色）</h2> <svg class="svgMap" viewBox="0 0 900 320" role="img" aria-label="手绘风格的行程地图占位"> <!-- 背景网格与日程刻度（简单占位） --> <defs> <linearGradient id="grad" x1="0" y1="0" x2="1" y2="0"> <stop offset="0%" stop-color="#ffd166"/> <stop offset="100%" stop-color="#06d6a0"/> </linearGradient> </defs> <rect x="0" y="0" width="900" height="320" fill="#1a1c22"/> <!-- 天数分段颜色（D1-D6） --> <g fill="none" stroke-width="8"> <path d="M60,260 C180,180 260,120 360,120" stroke="#ffd166"/> <path d="M420,260 C520,180 620,150 700,120" stroke="#2ec4b6" /> <path d="M720,260 C780,210 820,180 840,140" stroke="#62a1ff" /> </g> <!-- 标注各晚住宿城市（占位） --> <g fill="#fff" font-family="monospace" font-size="12"> <text x="70" y="250" fill="#ffd166">敦煌</text> <text x="230" y="195" fill="#2ec4b6">嘉峪关</text> <text x="520" y="170" fill="#62a1ff">武威</text> <text x="660" y="140" fill="#a8e6a0">兰州</text> <text x="860" y="120" fill="#9be8ff">杭州/仙居</text> </g> <!-- 简易路线点 --> <circle cx="60" cy="260" r="6" fill="#ffd166"/> <circle cx="200" cy="200" r="6" fill="#2ec4b6"/> <circle cx="520" cy="170" r="6" fill="#62a1ff"/> <circle cx="660" cy="140" r="6" fill="#a8e6a0"/> <circle cx="860" cy="120" r="6" fill="#9be8ff"/> </svg> </section>
+      <!-- 路线 -->
+      <path d="M70 60 L70 130" stroke="var(--day1)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M70 130 Q110 150 130 190" stroke="var(--day3)" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="1 0"/>
+      <path d="M130 190 L200 220" stroke="var(--day4)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M200 220 Q250 250 230 290" stroke="var(--day5)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M230 290 L280 330" stroke="var(--day6)" stroke-width="3" fill="none" stroke-linecap="round"/>
 
-<!-- 已确认的票务/住宿卡片（占位） --> <section class="card" aria-label="已确认的机票/酒店/门票卡片（占位）"> <h2>已确认的票务与住宿</h2> <div class="row"> <div class="col card" style="padding:10px;"> <strong>航班</strong> <div>D1: 9/14 杭州萧山 T4 → 敦煌莫高 (CA1757) 未使用</div> </div> <div class="col card" style="padding:10px;"> <strong>航班</strong> <div>D6: 9/19 兰州中川 T3 → 杭州萧山 T3 未使用</div> </div> <div class="col card" style="padding:10px;"> <strong>住宿（占位）</strong> <div>敦煌占位酒店 • 嘉峪关占位酒店 • 武威占位酒店 • 兰州占位酒店</div> </div> </div> <div class="tip" style="margin-top:8px;">注：酒店名称将在你提供具体信息后替换为实际名称。</div> </section>
+      <!-- 城市点 -->
+      <g font-size="11" fill="var(--ink)" font-family="sans-serif">
+        <circle cx="70" cy="60" r="6" fill="var(--day1)"/>
+        <text x="82" y="64">敦煌</text>
+        <text x="82" y="78" font-size="9" fill="var(--sub)">D1-D2 住</text>
 
-<!-- 逐日行程 --> <section class="card" aria-label="逐日行程（D1–D6）"> <h2>逐日行程</h2> <div id="days" class="row" style="flex-direction:column; gap:14px;"> <!-- D1 --> <div class="dayItem" data-day="D1"> <div class="dateTag">D1</div> <div class="dayContent"> <div><strong>杭州 → 敦煌</strong> <span class="tag" title="航班确认后该项可点击跳转导航">航班待定</span></div> <div class="tip" style="margin-top:6px;">需提前订票的景点：无，抵达后安排自由活动</div> </div> </div> <!-- D2 --> <div class="dayItem" data-day="D2"> <div class="dateTag">D2</div> <div class="dayContent"> <div><strong>敦煌：莫高窟/鸣沙山</strong> <span class="slot" title="需要提前订票">需订票</span></div> <div class="tip" style="margin-top:6px;">距离敦煌市区较近，建议上午莫高窟，下午鸣沙山日落/沙坡头自选</div> </div> </div> <!-- D3 --> <div class="dayItem" data-day="D3"> <div class="dateTag">D3</div> <div class="dayContent"> <div><strong>敦煌博物馆 → 嘉峪关城楼</strong> <span class="slot" title="车程约 5 小时">车程约 5h</span></div> <div class="tip" style="margin-top:6px;">路线：敦煌出发，驾车或包车前往嘉峪关</div> </div> </div> <!-- D4 --> <div class="dayItem" data-day="D4"> <div class="dateTag">D4</div> <div class="dayContent"> <div><strong>嘉峪关 → 张掖七彩丹霞 → 武威</strong> <span class="slot" title="车程信息">车程约 2.5h + 3.5h</span></div> </div> </div> <!-- D5 --> <div class="dayItem" data-day="D5"> <div class="dateTag">D5</div> <div class="dayContent"> <div><strong>武威 → 鸿摩罗什寺 → 天梯山石窟 → 兰州</strong> <span class="slot" title="车程信息">约 4h+1h+4h</span></div> </div> </div> <!-- D6 --> <div class="dayItem" data-day="D6"> <div class="dateTag">D6</div> <div class="dayContent"> <div><strong>兰州 → 杭州 → 仙居</strong> <span class="slot" title="航班/车次信息">航班/动车待定</span></div> </div> </div> </div> </section>
+        <circle cx="130" cy="190" r="6" fill="var(--day3)"/>
+        <text x="142" y="194">嘉峪关</text>
+        <text x="142" y="208" font-size="9" fill="var(--sub)">D3 住</text>
 
-<!-- 待办清单（多用户同步需要服务端，当前为前端离线渲染，后续可接后端同步） --> <section class="card" aria-label="待办清单（离线渲染，初稿）"> <h2>待办清单（离线渲染，可在本地勾选，若需要多人同步，请后续接入服务端）</h2> <div id="todoList"> <div class="todoItem" data-id="t1"> <span class="checkbox" role="checkbox" aria-label="完成该待办"></span> <span class="todoTitle">确认动车票（兰州/武威段）时间与座位</span> </div> <div class="todoItem" data-id="t2"> <span class="checkbox" role="checkbox" aria-label="完成该待办"></span> <span class="todoTitle">酒店名称与房型占位替换为实际信息</span> </div> <div class="todoItem" data-id="t3"> <span class="checkbox" role="checkbox" aria-label="完成该待办"></span> <span class="todoTitle">确保航班票面时间作为日程锚点（若有变动需重新排程）</span> </div> </div> </section>
+        <circle cx="200" cy="220" r="6" fill="var(--day4)"/>
+        <text x="212" y="224">张掖</text>
+        <text x="212" y="238" font-size="9" fill="var(--sub)">丹霞</text>
 
-<!-- 实用贴士 --> <section class="card" aria-label="实用贴士"> <h2>实用贴士</h2> <ul class="tip" style="margin:0; padding-left:1.2rem;"> <li>地点点击可唤起百度地图导航跳转；手机端打开即可导航达成。</li> <li>每日路线地图可展开查看全天点位导航（占位，后续可扩展为完整数据）。</li> <li>白天/夜间自动换配色，便于夜间查看与省电。</li> <li>公开网页不包含敏感信息（如确认号、证件号、房间号等）。</li> </ul> </section>
+        <circle cx="230" cy="290" r="6" fill="var(--day4)"/>
+        <text x="242" y="294">武威</text>
+        <text x="242" y="308" font-size="9" fill="var(--sub)">D4 住</text>
 
+        <circle cx="280" cy="330" r="6" fill="var(--day6)"/>
+        <text x="240" y="352">兰州</text>
+        <text x="240" y="366" font-size="9" fill="var(--sub)">D5 住</text>
+      </g>
+
+      <!-- 起终点标注 -->
+      <text x="20" y="30" font-size="10" fill="var(--sub)">杭州 ✈ 敦煌</text>
+      <text x="250" y="385" font-size="10" fill="var(--sub)">兰州 ✈ 杭州</text>
+    </svg>
+    <div class="map-legend">
+      <span class="lg"><i style="background:var(--day1)"></i>D1-2 敦煌</span>
+      <span class="lg"><i style="background:var(--day3)"></i>D3 嘉峪关</span>
+      <span class="lg"><i style="background:var(--day4)"></i>D4 张掖/武威</span>
+      <span class="lg"><i style="background:var(--day5)"></i>D5 武威→兰州</span>
+      <span class="lg"><i style="background:var(--day6)"></i>D6 兰州返程</span>
+    </div>
+  </div>
+
+  <!-- 3. 已确认票务 -->
+  <div class="card">
+    <h2>机票</h2>
+    <div class="ticket">
+      <div class="tk-head">
+        <span class="tk-type">已出票</span>
+        <span class="tk-title">CA1757 · 国航</span>
+      </div>
+      <div class="tk-row"><b>09-14</b> 13:55 杭州萧山 T4 → 17:55 敦煌莫高</div>
+    </div>
+    <div class="ticket">
+      <div class="tk-head">
+        <span class="tk-type">已出票</span>
+        <span class="tk-title">HU7887 · 海航</span>
+      </div>
+      <div class="tk-row"><b>09-19</b> 11:50 兰州中川 T3 → 14:45 杭州萧山 T3</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>租车 / 住宿 / 门票</h2>
+    <div class="ticket">
+      <div class="tk-head">
+        <span class="tk-type pending">待补充</span>
+        <span class="tk-title">租车</span>
+      </div>
+      <div class="tk-row">建议敦煌取车、兰州还车（异地还车）</div>
+    </div>
+    <div class="ticket">
+      <div class="tk-head">
+        <span class="tk-type pending">待定</span>
+        <span class="tk-title">住宿</span>
+      </div>
+      <div class="tk-row">敦煌 ×2 · 嘉峪关 ×1 · 武威 ×1 · 兰州 ×1</div>
+    </div>
+    <div class="ticket">
+      <div class="tk-head">
+        <span class="tk-type book">需预约</span>
+        <span class="tk-title">莫高窟</span>
+      </div>
+      <div class="tk-row">正常票需提前约 1 个月在官网实名预约，旺季紧张</div>
+    </div>
+  </div>
+
+  <!-- 4. 逐日行程 -->
+  <div class="card">
+    <h2>逐日行程</h2>
+    <div id="days"></div>
+  </div>
+
+  <!-- 5. 待办 -->
+  <div class="card">
+    <h2>待办清单</h2>
+    <div class="todo-head">
+      <span style="font-size:13px;color:var(--sub)" id="todoCount">0 / 0</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    <div id="todoList"></div>
+    <div class="sync-hint" id="syncHint">点击可勾选 · 多人共享进度</div>
+  </div>
+
+  <!-- 6. 贴士 -->
+  <div class="card">
+    <h2>实用贴士</h2>
+    <ul class="tips">
+      <li>莫高窟需提前约 1 个月在官网实名预约，正常票含数字展示中心 + 8 窟，售罄后只剩应急票（4 窟）。</li>
+      <li>敦煌博物馆周一闭馆，需预约；天梯山石窟周一闭馆，需预约。你的行程 D2（周三）、D5（周五）均不受影响。</li>
+      <li>D4 全程车程约 6 小时，建议 7 点前从嘉峪关出发，张掖丹霞选上午时段光线较好。</li>
+      <li>D5 傍晚到兰州，黄河风情线建议夜游（中山桥、黄河母亲像一带）。</li>
+      <li>D6 兰州中川机场离市区约 60–70km，建议 08:30 前从市区出发；HU7887 11:50 起飞，14:45 落地杭州。</li>
+      <li>兰州→杭州落地后需转高铁回仙居，杭州西站有直达动车（约 1h15m），建议买 17:48 之后班次。</li>
+      <li>甘肃昼夜温差大，9 月早晚偏凉，带一件外套。敦煌日照强，备防晒和墨镜。</li>
+      <li>嘉峪关、张掖丹霞可现场或线上购票，线上买可省排队时间。</li>
+    </ul>
+  </div>
+
+  <div class="foot">甘肃 6 日 · 旅行手册</div>
 </div>
 
-<script> // 简易倒计时：设定下一个事件的目标日期时间（示例占位，实际以你的具体日期替换） // 由于你已经给出航班/日期信息，当前初稿用固定目标(2026-09-14T13:00:00)演示 const target = new Date("2026-09-14T13:00:00+08:00"); const countdownEl = document.getElementById("countdown"); function updateCountdown() { const now = new Date(); const diff = target - now; if (diff <= 0) { countdownEl.textContent = "此刻关注：已开始或结束"; return; } const d = Math.floor(diff / (1000 * 60 * 60 * 24)); const h = Math.floor((diff / (1000 * 60 * 60)) % 24); const m = Math.floor((diff / (1000 * 60)) % 60); const s = Math.floor((diff / 1000) % 60); countdownEl.textContent = 下一个行程事件还剩 ${d}d ${h}h ${m}m ${s}s; } updateCountdown(); setInterval(updateCountdown, 1000);
+<script>
+/* ---------- 主题自动切换 ---------- */
+(function(){
+  function apply(){
+    var h = new Date().getHours();
+    var dark = h < 6 || h >= 19;
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  }
+  apply();
+  setInterval(apply, 60000);
+})();
 
-// 待办勾选本地保存（简单在本设备本地生效） const items = document.querySelectorAll(".todoItem"); items.forEach(it => { it.addEventListener("click", () => { const box = it.querySelector(".checkbox"); const isChecked = box.classList.toggle("checked"); // 保存状态在 localStorage const id = it.dataset.id; localStorage.setItem("todo_" + id, isChecked ? "1" : "0"); }); // 初始化状态 const id = it.dataset.id; const saved = localStorage.getItem("todo_" + id); if (saved === "1") { it.querySelector(".checkbox").classList.add("checked"); } }); </script> </body> </html>
+/* ---------- 行程数据 ---------- */
+var ITINERARY = [
+  {day:1, date:'09-14', color:'var(--day1)', title:'仙居 → 杭州 → 敦煌', stay:'敦煌',
+   events:[
+     {t:'上午', title:'仙居乘大巴至杭州', note:'需自行确认大巴班次，留足前往萧山机场的时间'},
+     {t:'13:55', title:'杭州萧山 T4 起飞 CA1757', note:'建议 11:30 前到机场', tag:'已出票', loc:'杭州萧山国际机场T4'},
+     {t:'17:55', title:'抵达敦煌莫高机场', note:'取行李后前往市区，约 13km'},
+     {t:'晚上', title:'入住敦煌', note:'敦煌 ×2 晚'}
+   ]},
+  {day:2, date:'09-15', color:'var(--day2)', title:'敦煌：莫高窟 · 鸣沙山', stay:'敦煌',
+   events:[
+     {t:'上午', title:'莫高窟', note:'需提前预约，按预约时段入场', tag:'需预约', loc:'莫高窟'},
+     {t:'下午', title:'鸣沙山月牙泉', note:'建议傍晚前入园，可看日落', loc:'鸣沙山月牙泉'},
+     {t:'晚上', title:'入住敦煌', note:''}
+   ]},
+  {day:3, date:'09-16', color:'var(--day3)', title:'敦煌 → 嘉峪关', stay:'嘉峪关',
+   events:[
+     {t:'上午', title:'敦煌博物馆', note:'免费，需预约；周一闭馆', tag:'免费·需预约', loc:'敦煌博物馆'},
+     {t:'中午', title:'出发前往嘉峪关', note:'约 370km，车程约 5 小时'},
+     {t:'傍晚', title:'嘉峪关城楼', note:'视到达时间安排', loc:'嘉峪关关城'},
+     {t:'晚上', title:'入住嘉峪关', note:'嘉峪关 ×1 晚'}
+   ]},
+  {day:4, date:'09-17', color:'var(--day4)', title:'嘉峪关 → 张掖 → 武威', stay:'武威',
+   events:[
+     {t:'07:00', title:'出发前往张掖七彩丹霞', note:'约 230km，车程约 2.5 小时'},
+     {t:'上午', title:'张掖七彩丹霞', note:'建议线上购票，选好入园时段', tag:'需购票', loc:'张掖七彩丹霞'},
+     {t:'中午', title:'出发前往武威', note:'约 280km，车程约 3.5 小时'},
+     {t:'晚上', title:'入住武威', note:'武威 ×1 晚'}
+   ]},
+  {day:5, date:'09-18', color:'var(--day5)', title:'武威 → 兰州', stay:'兰州',
+   events:[
+     {t:'上午', title:'鸠摩罗什寺', note:'', loc:'鸠摩罗什寺'},
+     {t:'上午', title:'天梯山石窟', note:'约 60km，车程约 1 小时；需预约，周一闭馆', tag:'需预约', loc:'天梯山石窟'},
+     {t:'下午', title:'出发前往兰州', note:'约 260km，车程约 4 小时'},
+     {t:'傍晚', title:'黄河风情线', note:'中山桥、黄河母亲像一带夜游', loc:'兰州中山桥'},
+     {t:'晚上', title:'入住兰州', note:'兰州 ×1 晚'}
+   ]},
+  {day:6, date:'09-19', color:'var(--day6)', title:'兰州 → 杭州 → 仙居', stay:'—',
+   events:[
+     {t:'08:30', title:'出发前往兰州中川机场', note:'约 60–70km，建议留足 1 小时以上'},
+     {t:'11:50', title:'兰州中川 T3 起飞 HU7887', note:'', tag:'已出票', loc:'兰州中川国际机场T3'},
+     {t:'14:45', title:'抵达杭州萧山 T3', note:'取行李后前往杭州西站'},
+     {t:'17:48', title:'杭州西 → 仙居（动车）', note:'建议班次，待购票', tag:'待购票', loc:'杭州西站'}
+   ]}
+];
+
+/* ---------- 渲染逐日 ---------- */
+(function(){
+  var box = document.getElementById('days');
+  var html = '';
+  ITINERARY.forEach(function(d){
+    html += '<div class="day" data-day="'+d.day+'">';
+    html += '<div class="day-dot" style="background:'+d.color+'"></div>';
+    html += '<div class="day-head" onclick="toggleDay(this)">';
+    html += '<div><div class="day-title" style="color:'+d.color+'">D'+d.day+' · '+d.title+'</div>';
+    html += '<div class="day-date">'+d.date+'　住：'+d.stay+'</div></div>';
+    html += '<span class="day-toggle">▼</span>';
+    html += '</div>';
+    html += '<div class="day-map"><div class="day-map-inner">';
+    html += '<div style="font-size:12px;color:var(--sub)">当日路线 · 点击地点可唤起地图导航</div>';
+    var locs = d.events.filter(function(e){return e.loc}).map(function(e){return e.loc});
+    if(locs.length){
+      var url = 'https://api.map.baidu.com/direction?origin=&destination='+encodeURIComponent(locs[locs.length-1])+'&mode=driving&region=全国';
+      html += '<a class="day-route-btn" href="'+url+'" target="_blank">一键导航全天路线</a>';
+    }
+    html += '</div></div>';
+    d.events.forEach(function(e){
+      html += '<div class="ev"><div class="ev-time">'+e.t+'</div><div class="ev-body">';
+      html += '<div class="ev-title">';
+      if(e.loc){
+        html += '<span class="loc" onclick="nav(\''+e.loc+'\')">'+e.title+'</span>';
+      } else {
+        html += e.title;
+      }
+      if(e.tag){ html += '<span class="tag '+(e.tag.indexOf('已出票')>=0?'book':'book')+'">'+e.tag+'</span>'; }
+      html += '</div>';
+      if(e.note){ html += '<div class="ev-note">'+e.note+'</div>'; }
+      html += '</div></div>';
+    });
+    html += '</div>';
+  });
+  box.innerHTML = html;
+})();
+
+function toggleDay(el){
+  el.parentNode.classList.toggle('open');
+}
+
+function nav(place){
+  var url = 'https://api.map.baidu.com/geocoder?address='+encodeURIComponent(place)+'&output=html&src=webapp.travel';
+  window.open(url, '_blank');
+}
+
+/* ---------- 倒计时 ---------- */
+(function(){
+  var events = [];
+  ITINERARY.forEach(function(d){
+    var md = d.date.split('-');
+    d.events.forEach(function(e){
+      var hh=0, mm=0;
+      var m = e.t.match(/^(\d{1,2}):(\d{2})$/);
+      if(m){ hh=+m[1]; mm=+m[2]; }
+      else if(e.t==='上午'){ hh=9; }
+      else if(e.t==='中午'){ hh=12; }
+      else if(e.t==='下午'){ hh=14; }
+      else if(e.t==='傍晚'){ hh=18; }
+      else if(e.t==='晚上'){ hh=20; }
+      else { hh=9; }
+      events.push({
+        time:new Date(2026, +md[0]-1, +md[1], hh, mm, 0),
+        title:'D'+d.day+' · '+e.title
+      });
+    });
+  });
+  events.sort(function(a,b){return a.time-b.time});
+
+  function nextEvent(){
+    var now = new Date();
+    for(var i=0;i<events.length;i++){
+      if(events[i].time > now) return events[i];
+    }
+    return events[events.length-1];
+  }
+
+  function tick(){
+    var ev = nextEvent();
+    document.getElementById('nowEvent').textContent = ev.title;
+    var diff = ev.time - new Date();
+    if(diff < 0) diff = 0;
+    var d = Math.floor(diff/86400000);
+    var h = Math.floor(diff%86400000/3600000);
+    var m = Math.floor(diff%3600000/60000);
+    var s = Math.floor(diff%60000/1000);
+    document.getElementById('cdD').textContent = d;
+    document.getElementById('cdH').textContent = String(h).padStart(2,'0');
+    document.getElementById('cdM').textContent = String(m).padStart(2,'0');
+    document.getElementById('cdS').textContent = String(s).padStart(2,'0');
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+/* ---------- 待办（KV 同步） ---------- */
+var TODOS = [
+  '预约莫高窟正常票（含数字展示中心）',
+  '预约敦煌博物馆',
+  '预约天梯山石窟',
+  '购买张掖七彩丹霞门票',
+  '预订敦煌 2 晚住宿',
+  '预订嘉峪关 1 晚住宿',
+  '预订武威 1 晚住宿',
+  '预订兰州 1 晚住宿',
+  '确认敦煌租车（建议兰州还车）',
+  '购买杭州西 → 仙居动车票',
+  '确认仙居 → 杭州大巴班次'
+];
+
+var todoState = {};
+var API = '/api/todos';
+
+function renderTodos(){
+  var list = document.getElementById('todoList');
+  var done = 0;
+  var html = '';
+  TODOS.forEach(function(t, i){
+    var checked = !!todoState[i];
+    if(checked) done++;
+    html += '<div class="todo-item'+(checked?' done':'')+'" onclick="toggleTodo('+i+')">';
+    html += '<div class="todo-box"></div><div class="todo-text">'+t+'</div></div>';
+  });
+  list.innerHTML = html;
+  document.getElementById('todoCount').textContent = done+' / '+TODOS.length;
+  document.getElementById('progressFill').style.width = (done/TODOS.length*100)+'%';
+
+  // 顶部当前待办：第一条未勾选
+  var first = TODOS.find(function(t,i){return !todoState[i]});
+  document.getElementById('nowTodo').textContent = first ? first : '全部完成 🎉';
+}
+
+function loadTodos(){
+  fetch(API).then(function(r){return r.json()}).then(function(data){
+    todoState = data || {};
+    renderTodos();
+  }).catch(function(){
+    document.getElementById('syncHint').textContent = '离线模式 · 仅本机可勾选';
+    try{ todoState = JSON.parse(localStorage.getItem('gs_todos')||'{}'); }catch(e){}
+    renderTodos();
+  });
+}
+
+function toggleTodo(i){
+  todoState[i] = !todoState[i];
+  renderTodos();
+  localStorage.setItem('gs_todos', JSON.stringify(todoState));
+  fetch(API, {
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(todoState)
+  }).catch(function(){});
+}
+
+loadTodos();
+</script>
+</body>
+</html>
