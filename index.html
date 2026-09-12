@@ -16,22 +16,22 @@
   body{
     margin:0;background:var(--bg);color:var(--ink);
     font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
-    font-size:15px;line-height:1.6;padding-bottom:40px;
+    font-size:16px;line-height:1.7;padding-bottom:40px;
   }
   .wrap{max-width:680px;margin:0 auto;padding:16px}
-  h1{font-size:20px;margin:8px 0 4px;letter-spacing:.5px}
-  .sub{color:var(--sub);font-size:13px;margin-bottom:16px}
+  h1{font-size:22px;margin:8px 0 4px;letter-spacing:.5px}
+  .sub{color:var(--sub);font-size:14px;margin-bottom:16px}
   .card{
     background:var(--card);border-radius:16px;padding:18px;
     box-shadow:var(--shadow);margin-bottom:14px;
     border:1px solid rgba(200,170,130,.18);
   }
   .card h2{
-    font-size:15px;margin:0 0 12px;letter-spacing:.5px;
+    font-size:17px;margin:0 0 12px;letter-spacing:.5px;
     display:flex;align-items:center;gap:8px;
   }
   .card h2::before{
-    content:"";width:4px;height:16px;border-radius:2px;background:var(--accent);
+    content:"";width:4px;height:18px;border-radius:2px;background:var(--accent);
   }
 
   /* 倒计时 */
@@ -40,21 +40,21 @@
     color:#fff;border-radius:16px;padding:20px;margin-bottom:14px;
     box-shadow:0 4px 18px rgba(160,110,50,.28);
   }
-  .now-label{font-size:12px;opacity:.9;letter-spacing:1px}
-  .now-event{font-size:17px;font-weight:600;margin:6px 0 14px}
+  .now-label{font-size:13px;opacity:.9;letter-spacing:1px}
+  .now-event{font-size:18px;font-weight:600;margin:6px 0 14px}
   .countdown{display:flex;gap:10px}
   .cd-unit{flex:1;text-align:center;background:rgba(255,255,255,.2);border-radius:10px;padding:8px 4px}
-  .cd-num{font-size:24px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
-  .cd-lab{font-size:11px;opacity:.9;margin-top:2px}
+  .cd-num{font-size:26px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
+  .cd-lab{font-size:12px;opacity:.9;margin-top:2px}
 
   /* 总览地图 */
   .map-wrap{
-    border-radius:14px;overflow:hidden;background:#f4ead6;
+    border-radius:14px;overflow:hidden;background:#fdfaf4;
     border:1px solid var(--line);
   }
   .map-svg{width:100%;height:auto;display:block}
   .map-legend{
-    display:flex;flex-wrap:wrap;gap:12px;margin-top:12px;font-size:12px;color:var(--sub);
+    display:flex;flex-wrap:wrap;gap:12px;margin-top:12px;font-size:13px;color:var(--sub);
   }
   .lg{display:flex;align-items:center;gap:5px}
   .lg i{width:10px;height:10px;border-radius:50%;display:inline-block}
@@ -66,50 +66,50 @@
   }
   .ticket:last-child{margin-bottom:0}
   .tk-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-  .tk-type{font-size:11px;color:#fff;background:var(--accent2);padding:2px 8px;border-radius:20px}
-  .tk-title{font-size:14px;font-weight:600}
-  .tk-row{font-size:13px;color:var(--sub);margin-top:4px}
+  .tk-type{font-size:12px;color:#fff;background:var(--accent2);padding:2px 8px;border-radius:20px}
+  .tk-title{font-size:15px;font-weight:600}
+  .tk-row{font-size:14px;color:var(--sub);margin-top:4px}
   .tk-row b{color:var(--ink);font-weight:500}
 
   /* 逐日 */
-  .day{border-left:3px solid var(--line);padding-left:14px;margin-left:6px;margin-bottom:20px;position:relative}
+  .day{border-left:3px solid var(--line);padding-left:16px;margin-left:6px;margin-bottom:22px;position:relative}
   .day:last-child{margin-bottom:0}
   .day-head{display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none}
   .day-dot{
-    position:absolute;left:-9px;top:2px;width:14px;height:14px;border-radius:50%;
+    position:absolute;left:-9px;top:4px;width:14px;height:14px;border-radius:50%;
     border:3px solid var(--card);
   }
-  .day-title{font-size:15px;font-weight:600}
-  .day-date{font-size:12px;color:var(--sub)}
-  .day-toggle{margin-left:auto;font-size:11px;color:var(--sub);transition:transform .2s}
+  .day-title{font-size:16px;font-weight:600}
+  .day-date{font-size:13px;color:var(--sub)}
+  .day-weather{
+    font-size:12px;color:var(--accent);margin-top:2px;
+    display:flex;align-items:center;gap:4px;
+  }
+  .day-toggle{margin-left:auto;font-size:12px;color:var(--sub);transition:transform .2s}
   .day.open .day-toggle{transform:rotate(180deg)}
   .day-route{max-height:0;overflow:hidden;transition:max-height .4s ease}
-  .day.open .day-route{max-height:500px}
+  .day.open .day-route{max-height:700px}
   .day-route-inner{padding:12px 0 4px}
-  .day-route-btn{
-    display:inline-block;margin-top:8px;font-size:12px;color:#fff;
-    background:var(--accent2);padding:7px 14px;border-radius:20px;text-decoration:none;
-  }
   .leg{
     display:flex;gap:10px;align-items:flex-start;
-    padding:8px 0;font-size:13px;border-bottom:1px dashed var(--line);
+    padding:8px 0;font-size:14px;border-bottom:1px dashed var(--line);
   }
   .leg:last-child{border-bottom:none}
-  .leg-ico{color:var(--accent);flex-shrink:0;font-size:14px}
+  .leg-ico{color:var(--accent);flex-shrink:0;font-size:15px}
   .leg-body{flex:1}
   .leg-line{font-weight:500}
-  .leg-meta{font-size:12px;color:var(--sub);margin-top:1px}
+  .leg-meta{font-size:13px;color:var(--sub);margin-top:1px}
 
-  .ev{display:flex;gap:12px;margin-top:14px;font-size:14px}
-  .ev-time{flex-shrink:0;width:52px;color:var(--sub);font-size:13px;font-variant-numeric:tabular-nums;padding-top:1px}
+  .ev{display:flex;gap:12px;margin-top:14px;font-size:15px}
+  .ev-time{flex-shrink:0;width:58px;color:var(--sub);font-size:14px;font-variant-numeric:tabular-nums;padding-top:1px}
   .ev-body{flex:1}
-  .ev-title{font-weight:600;font-size:14.5px}
-  .ev-note{font-size:12px;color:var(--sub);margin-top:2px}
+  .ev-title{font-weight:600;font-size:15px}
+  .ev-note{font-size:13px;color:var(--sub);margin-top:2px}
   .ev-title .loc{cursor:pointer;border-bottom:1px dashed var(--sub)}
-  .ev-title .loc::after{content:" ›";font-size:12px;color:var(--accent)}
+  .ev-title .loc::after{content:" ›";font-size:13px;color:var(--accent)}
   .ev-title .loc:active{opacity:.6}
   .tag{
-    display:inline-block;font-size:11px;padding:1px 7px;border-radius:20px;
+    display:inline-block;font-size:12px;padding:1px 7px;border-radius:20px;
     margin-left:6px;vertical-align:1px;
   }
   .tag.book{background:rgba(192,122,62,.14);color:var(--accent)}
@@ -125,30 +125,42 @@
   .sheet{
     background:var(--card);width:100%;max-width:680px;
     border-radius:20px 20px 0 0;padding:22px 20px 30px;
-    max-height:82vh;overflow-y:auto;
+    max-height:85vh;overflow-y:auto;
     animation:up .25s ease;position:relative;
   }
   @keyframes up{from{transform:translateY(40px);opacity:.6}to{transform:translateY(0);opacity:1}}
   .sheet-bar{width:40px;height:4px;background:var(--line);border-radius:2px;margin:0 auto 16px}
-  .sheet-title{font-size:18px;font-weight:700;margin-bottom:6px}
-  .sheet-meta{font-size:12px;color:var(--sub);margin-bottom:14px}
-  .sheet-desc{font-size:14px;line-height:1.7;color:var(--ink)}
-  .sheet-btn{
-    display:inline-block;margin-top:18px;font-size:13px;color:#fff;
-    background:var(--accent);padding:10px 20px;border-radius:22px;text-decoration:none;
+  .sheet-title{font-size:20px;font-weight:700;margin-bottom:4px}
+  .sheet-meta{font-size:13px;color:var(--sub);margin-bottom:14px}
+  .sheet-desc{font-size:15px;line-height:1.7;color:var(--ink);margin-bottom:16px}
+  .info-block{
+    background:#faf6ef;border-radius:12px;padding:14px;margin-bottom:12px;
+    border:1px solid var(--line);
   }
+  .info-block h4{
+    font-size:14px;margin:0 0 8px;color:var(--accent);
+    display:flex;align-items:center;gap:6px;
+  }
+  .info-block h4::before{
+    content:"";width:3px;height:14px;border-radius:2px;background:var(--accent);
+  }
+  .info-block p{font-size:14px;margin:0 0 6px;color:var(--ink);line-height:1.6}
+  .info-block p:last-child{margin-bottom:0}
+  .info-block ul{margin:0;padding-left:18px}
+  .info-block li{font-size:14px;margin-bottom:5px;line-height:1.5}
+  .info-block li::marker{color:var(--accent)}
 
-  .tips li{font-size:13.5px;margin-bottom:8px;color:var(--ink)}
+  .tips li{font-size:14px;margin-bottom:8px;color:var(--ink)}
   .tips li::marker{color:var(--accent)}
   ul.tips{padding-left:20px;margin:0}
 
-  .foot{text-align:center;font-size:11px;color:var(--sub);padding:20px 0 10px}
+  .foot{text-align:center;font-size:12px;color:var(--sub);padding:20px 0 10px}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <h1>甘肃 6 日</h1>
+  <h1>甘肃 6 日 · 跟团游</h1>
   <div class="sub">2026.09.14 — 09.19 · 敦煌 / 嘉峪关 / 张掖 / 武威 / 兰州</div>
 
   <!-- 1. 此刻关注 -->
@@ -167,137 +179,101 @@
   <div class="card">
     <h2>甘肃行程总览</h2>
     <div class="map-wrap">
-    <svg class="map-svg" viewBox="0 0 360 520" xmlns="http://www.w3.org/2000/svg">
+    <svg class="map-svg" viewBox="0 0 360 500" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <!-- 甘肃地形底色渐变 -->
-        <linearGradient id="provBg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#f7eed8"/>
-          <stop offset="100%" stop-color="#efe1c2"/>
-        </linearGradient>
-        <!-- 山脉渐变 -->
-        <linearGradient id="mt1" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#d9c39a"/>
-          <stop offset="100%" stop-color="#c9b184"/>
-        </linearGradient>
-        <linearGradient id="mt2" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#e3d0ac"/>
-          <stop offset="100%" stop-color="#d3bf98"/>
-        </linearGradient>
-        <!-- 城市光晕 -->
-        <radialGradient id="halo">
-          <stop offset="0%" stop-color="#c07a3e" stop-opacity=".35"/>
-          <stop offset="100%" stop-color="#c07a3e" stop-opacity="0"/>
-        </radialGradient>
-        <!-- 路线渐变 -->
-        <linearGradient id="route" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#c07a3e"/>
+        <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse">
+          <circle cx="2" cy="2" r=".9" fill="#e2d7c0"/>
+          <circle cx="10" cy="10" r=".7" fill="#e2d7c0" opacity=".7"/>
+        </pattern>
+        <linearGradient id="dash" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#d98a4a"/>
           <stop offset="100%" stop-color="#8a9a6a"/>
         </linearGradient>
+        <marker id="arrDun" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#c07a3e"/></marker>
+        <marker id="arrJia" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#a8924e"/></marker>
+        <marker id="arrZha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#c9a24a"/></marker>
+        <marker id="arrWuw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#8a9a6a"/></marker>
+        <marker id="arrLan" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#a08a6a"/></marker>
       </defs>
 
-      <!-- 甘肃轮廓（简化真实形状，狭长 + 河西走廊） -->
-      <path d="M120 40
-               Q160 30 200 45
-               Q230 55 250 80
-               Q270 105 260 130
-               Q280 150 300 175
-               Q320 195 310 215
-               Q300 235 275 245
-               Q255 255 260 280
-               Q270 305 250 330
-               Q230 350 235 380
-               Q240 410 215 430
-               Q190 450 160 445
-               Q130 440 115 415
-               Q100 390 110 360
-               Q120 330 100 310
-               Q80 290 90 260
-               Q100 235 85 210
-               Q70 185 85 155
-               Q100 125 90 100
-               Q85 70 120 40 Z"
-            fill="url(#provBg)" stroke="#c9b184" stroke-width="2"/>
+      <rect width="360" height="500" fill="#fbf6e9"/>
+      <rect width="360" height="500" fill="url(#dots)"/>
 
-      <!-- 祁连山脉（走廊南侧） -->
-      <g opacity=".85">
-        <path d="M100 130 L120 115 L140 128 L160 112 L180 126 L200 115 L215 128" fill="none" stroke="url(#mt1)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M108 150 L128 136 L148 148 L168 134 L188 146 L208 136 L222 148" fill="none" stroke="url(#mt2)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M115 170 L135 157 L155 168 L175 155 L195 166 L212 156" fill="none" stroke="url(#mt1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="24" y="40" font-size="19" font-weight="700" fill="#8a6a4a"
+            font-family="'Kaiti SC','STKaiti','Xingkai SC',cursive" letter-spacing="1">甘肃 6 日 · 手账地图</text>
+      <line x1="24" y1="50" x2="212" y2="50" stroke="#c9a24a" stroke-width="1.5" stroke-dasharray="6 3"/>
+
+      <g transform="translate(292,26) rotate(8)">
+        <rect width="52" height="18" fill="#e8cfa8" opacity=".75"/>
+        <line x1="0" y1="3" x2="52" y2="3" stroke="#d4b888" stroke-width=".8"/>
+        <line x1="0" y1="15" x2="52" y2="15" stroke="#d4b888" stroke-width=".8"/>
+      </g>
+      <g transform="translate(18,458) rotate(-10)">
+        <rect width="52" height="18" fill="#d8c6a4" opacity=".7"/>
+        <line x1="0" y1="3" x2="52" y2="3" stroke="#c4b28e" stroke-width=".8"/>
+        <line x1="0" y1="15" x2="52" y2="15" stroke="#c4b28e" stroke-width=".8"/>
       </g>
 
-      <!-- 北山/合黎山（走廊北侧） -->
-      <g opacity=".7">
-        <path d="M120 95 L150 88 L180 96 L205 88 L225 98" fill="none" stroke="url(#mt1)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M130 108 L160 102 L190 110 L215 103" fill="none" stroke="url(#mt2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M24 96 Q40 78 56 96 Q72 76 88 96 Q104 80 120 96 Q136 74 152 96 Q168 82 184 96 Q200 76 216 96 Q232 80 248 96 Q264 74 280 96 Q296 82 312 96 Q328 78 340 94"
+            fill="none" stroke="#c9b894" stroke-width="1.6" stroke-linecap="round"/>
+      <text x="24" y="78" font-size="12" fill="#b09a7a" font-family="'Kaiti SC','STKaiti',cursive">祁连山</text>
+
+      <path d="M24 452 Q40 438 56 452 Q72 436 88 452 Q104 440 120 452 Q136 434 152 452 Q168 442 184 452 Q200 436 216 452 Q232 440 248 452 Q264 434 280 452 Q296 442 312 452 Q328 438 340 450"
+            fill="none" stroke="#d8c8a8" stroke-width="1.3" stroke-linecap="round"/>
+      <text x="24" y="472" font-size="12" fill="#b8a888" font-family="'Kaiti SC','STKaiti',cursive">北山</text>
+
+      <path d="M262 430 Q274 422 286 430 Q298 438 310 430 Q322 422 334 430"
+            fill="none" stroke="#9dc3da" stroke-width="2.2" stroke-linecap="round"/>
+      <text x="268" y="448" font-size="11" fill="#88a8bc" font-family="'Kaiti SC','STKaiti',cursive">黄河</text>
+
+      <path d="M92 160
+               Q92 225 122 262
+               Q150 292 178 316
+               Q206 340 228 368
+               Q244 388 250 412"
+            fill="none" stroke="#e8dcc0" stroke-width="8" stroke-linecap="round"/>
+      <path d="M92 160
+               Q92 225 122 262
+               Q150 292 178 316
+               Q206 340 228 368
+               Q244 388 250 412"
+            fill="none" stroke="url(#dash)" stroke-width="2.8" stroke-linecap="round"
+            stroke-dasharray="8 5"/>
+
+      <g font-family="'Kaiti SC','STKaiti','Xingkai SC',cursive">
+        <circle cx="92" cy="160" r="5" fill="#c07a3e" stroke="#fbf6e9" stroke-width="2"/>
+        <line x1="97" y1="160" x2="120" y2="152" stroke="#c07a3e" stroke-width="1.2" marker-end="url(#arrDun)"/>
+        <text x="126" y="146" font-size="19" font-weight="700" fill="#3a3026">敦煌</text>
+        <text x="126" y="166" font-size="12.5" fill="#8a7c68">莫高窟 · 鸣沙山</text>
+
+        <circle cx="122" cy="262" r="5" fill="#a8924e" stroke="#fbf6e9" stroke-width="2"/>
+        <line x1="127" y1="262" x2="150" y2="254" stroke="#a8924e" stroke-width="1.2" marker-end="url(#arrJia)"/>
+        <text x="156" y="248" font-size="19" font-weight="700" fill="#3a3026">嘉峪关</text>
+        <text x="156" y="268" font-size="12.5" fill="#8a7c68">关城 · 悬壁长城</text>
+
+        <circle cx="178" cy="316" r="5" fill="#c9a24a" stroke="#fbf6e9" stroke-width="2"/>
+        <line x1="183" y1="316" x2="206" y2="318" stroke="#c9a24a" stroke-width="1.2" marker-end="url(#arrZha)"/>
+        <text x="212" y="314" font-size="19" font-weight="700" fill="#3a3026">张掖</text>
+        <text x="212" y="334" font-size="12.5" fill="#8a7c68">七彩丹霞</text>
+
+        <circle cx="228" cy="368" r="5" fill="#8a9a6a" stroke="#fbf6e9" stroke-width="2"/>
+        <line x1="222" y1="372" x2="198" y2="384" stroke="#8a9a6a" stroke-width="1.2" marker-end="url(#arrWuw)"/>
+        <text x="192" y="396" font-size="19" font-weight="700" fill="#3a3026" text-anchor="end">武威</text>
+        <text x="192" y="416" font-size="12.5" fill="#8a7c68" text-anchor="end">鸠摩罗什寺 · 天梯山</text>
+
+        <circle cx="250" cy="412" r="5" fill="#a08a6a" stroke="#fbf6e9" stroke-width="2"/>
+        <line x1="255" y1="412" x2="278" y2="406" stroke="#a08a6a" stroke-width="1.2" marker-end="url(#arrLan)"/>
+        <text x="284" y="400" font-size="19" font-weight="700" fill="#3a3026">兰州</text>
+        <text x="284" y="420" font-size="12.5" fill="#8a7c68">黄河风情线</text>
       </g>
 
-      <!-- 黄河（兰州段） -->
-      <path d="M235 400 Q250 385 262 392 Q278 400 288 388"
-            fill="none" stroke="#8fb3c9" stroke-width="3" stroke-linecap="round" opacity=".75"/>
-      <text x="252" y="378" font-size="9" fill="#7a9bb0" font-family="sans-serif">黄河</text>
+      <text x="24" y="126" font-size="12" fill="#a08a6a" font-family="'Kaiti SC','STKaiti',cursive">杭州 ✈ 敦煌</text>
+      <text x="256" y="490" font-size="12" fill="#a08a6a" font-family="'Kaiti SC','STKaiti',cursive">兰州 ✈ 杭州</text>
 
-      <!-- 路线（河西走廊） -->
-      <path d="M132 84 L128 200" stroke="url(#route)" stroke-width="3" fill="none" stroke-linecap="round" opacity=".9"/>
-      <text x="140" y="145" font-size="9.5" fill="#9a8d7a" font-family="sans-serif">370km · 4.5h</text>
-
-      <path d="M128 200 Q150 235 165 265" stroke="url(#route)" stroke-width="3" fill="none" stroke-linecap="round" opacity=".9"/>
-      <text x="95" y="240" font-size="9.5" fill="#9a8d7a" font-family="sans-serif">230km · 2.5h</text>
-
-      <path d="M165 265 L200 295" stroke="url(#route)" stroke-width="3" fill="none" stroke-linecap="round" opacity=".9"/>
-      <text x="175" y="282" font-size="9.5" fill="#9a8d7a" font-family="sans-serif">240km · 3h</text>
-
-      <path d="M200 295 Q230 330 240 365" stroke="url(#route)" stroke-width="3" fill="none" stroke-linecap="round" opacity=".9"/>
-      <text x="218" y="335" font-size="9.5" fill="#9a8d7a" font-family="sans-serif">280km · 3.5h</text>
-
-      <!-- 城市光晕 -->
-      <circle cx="132" cy="84" r="26" fill="url(#halo)"/>
-      <circle cx="128" cy="200" r="24" fill="url(#halo)"/>
-      <circle cx="165" cy="265" r="22" fill="url(#halo)"/>
-      <circle cx="200" cy="295" r="22" fill="url(#halo)"/>
-      <circle cx="240" cy="365" r="26" fill="url(#halo)"/>
-
-      <!-- 城市点位 -->
-      <g font-family="sans-serif">
-        <!-- 敦煌 -->
-        <circle cx="132" cy="84" r="10" fill="#c07a3e"/>
-        <circle cx="132" cy="84" r="4" fill="#fff"/>
-        <rect x="148" y="72" width="52" height="22" rx="11" fill="#fffdf9" stroke="#e0d3ba"/>
-        <text x="174" y="87" font-size="12" font-weight="600" fill="#3a3026" text-anchor="middle">敦煌</text>
-
-        <!-- 嘉峪关 -->
-        <circle cx="128" cy="200" r="10" fill="#a8924e"/>
-        <circle cx="128" cy="200" r="4" fill="#fff"/>
-        <rect x="144" y="188" width="60" height="22" rx="11" fill="#fffdf9" stroke="#e0d3ba"/>
-        <text x="174" y="203" font-size="12" font-weight="600" fill="#3a3026" text-anchor="middle">嘉峪关</text>
-
-        <!-- 张掖 -->
-        <circle cx="165" cy="265" r="10" fill="#c9a24a"/>
-        <circle cx="165" cy="265" r="4" fill="#fff"/>
-        <rect x="181" y="253" width="44" height="22" rx="11" fill="#fffdf9" stroke="#e0d3ba"/>
-        <text x="203" y="268" font-size="12" font-weight="600" fill="#3a3026" text-anchor="middle">张掖</text>
-
-        <!-- 武威 -->
-        <circle cx="200" cy="295" r="10" fill="#8a9a6a"/>
-        <circle cx="200" cy="295" r="4" fill="#fff"/>
-        <rect x="216" y="283" width="44" height="22" rx="11" fill="#fffdf9" stroke="#e0d3ba"/>
-        <text x="238" y="298" font-size="12" font-weight="600" fill="#3a3026" text-anchor="middle">武威</text>
-
-        <!-- 兰州 -->
-        <circle cx="240" cy="365" r="10" fill="#a08a6a"/>
-        <circle cx="240" cy="365" r="4" fill="#fff"/>
-        <rect x="192" y="380" width="44" height="22" rx="11" fill="#fffdf9" stroke="#e0d3ba"/>
-        <text x="214" y="395" font-size="12" font-weight="600" fill="#3a3026" text-anchor="middle">兰州</text>
-      </g>
-
-      <!-- 起终点标注 -->
-      <text x="16" y="26" font-size="10" fill="#9a8d7a" font-family="sans-serif">杭州 ✈ 敦煌</text>
-      <text x="240" y="430" font-size="10" fill="#9a8d7a" font-family="sans-serif">兰州 ✈ 杭州</text>
-
-      <!-- 罗盘 -->
-      <g transform="translate(320,60)" opacity=".55">
-        <circle r="14" fill="none" stroke="#c9b184" stroke-width="1.2"/>
-        <path d="M0 -10 L3 0 L0 10 L-3 0 Z" fill="#c07a3e"/>
-        <text y="-18" font-size="9" fill="#9a8d7a" text-anchor="middle" font-family="sans-serif">N</text>
+      <g transform="translate(324,64)" opacity=".7">
+        <circle r="12" fill="#fff8e8" stroke="#c9b894" stroke-width="1" stroke-dasharray="2 2"/>
+        <path d="M0 -7 L2 0 L0 7 L-2 0 Z" fill="#c07a3e"/>
+        <text y="-15" font-size="10" fill="#a08a6a" text-anchor="middle" font-family="'Kaiti SC','STKaiti',cursive">N</text>
       </g>
     </svg>
     </div>
@@ -315,17 +291,17 @@
     <h2>机票</h2>
     <div class="ticket">
       <div class="tk-head"><span class="tk-type">已出票</span><span class="tk-title">CA1757 · 国航</span></div>
-      <div class="tk-row"><b>09-14</b> 13:55 杭州萧山 T4 → 17:55 敦煌莫高</div>
+      <div class="tk-row"><b>9 月 14 日</b> 13:55 杭州萧山 T4 → 17:55 敦煌莫高</div>
     </div>
     <div class="ticket">
       <div class="tk-head"><span class="tk-type">已出票</span><span class="tk-title">HU7887 · 海航</span></div>
-      <div class="tk-row"><b>09-19</b> 11:50 兰州中川 T3 → 14:45 杭州萧山 T3</div>
+      <div class="tk-row"><b>9 月 19 日</b> 11:50 兰州中川 T3 → 14:45 杭州萧山 T3</div>
     </div>
   </div>
 
   <!-- 4. 逐日 -->
   <div class="card">
-    <h2>逐日行程 <span style="font-size:11px;color:var(--sub);font-weight:400">点景点看详情</span></h2>
+    <h2>逐日行程 <span style="font-size:12px;color:var(--sub);font-weight:400">点标题展开路线 · 点景点看详情</span></h2>
     <div id="days"></div>
   </div>
 
@@ -333,13 +309,15 @@
   <div class="card">
     <h2>实用贴士</h2>
     <ul class="tips">
-      <li>莫高窟需提前约 1 个月在官网实名预约，正常票含数字展示中心 + 8 窟，售罄后只剩应急票（4 窟）。</li>
-      <li>敦煌博物馆周一闭馆，需预约；天梯山石窟周一闭馆，需预约。你的行程 D2（周三）、D5（周五）均不受影响。</li>
-      <li>D4 全程车程约 5.5 小时，建议 7 点前从嘉峪关出发，张掖丹霞选上午时段光线较好。</li>
-      <li>D5 傍晚到兰州，黄河风情线建议夜游（中山桥、黄河母亲像一带）。</li>
-      <li>D6 兰州中川机场离市区约 60–70km，建议 08:30 前从市区出发；HU7887 11:50 起飞，14:45 落地杭州。</li>
-      <li>兰州→杭州落地后需转高铁回仙居，杭州西站有直达动车（约 1h15m），建议买 17:48 之后班次。</li>
-      <li>甘肃昼夜温差大，9 月早晚偏凉，带一件外套。敦煌日照强，备防晒和墨镜。</li>
+      <li>9 月 14 日中午 12:00 萧山机场集合，请携带有效证件，提前 10 分钟抵达集合点。</li>
+      <li>莫高窟实名预约，A 类票每天限 6000 人、B 类票 12000 人，团队按预约场次入场，当天景点顺序可能因莫高窟时间调整。</li>
+      <li>莫高窟洞窟内禁止拍照摄像。</li>
+      <li>鸣沙山风沙大、沙粒细，注意手机相机防沙；骑骆驼时不要大声尖叫或打伞，抓紧扶手，不要转身拍照。</li>
+      <li>七彩丹霞地貌脆弱，踩上一脚几百年无法恢复，请勿踩踏红色地貌。</li>
+      <li>敦煌博物馆周一闭馆，需提前预约，免费参观。</li>
+      <li>团队机票出票后不退、不改、不签，取消全损。</li>
+      <li>甘肃昼夜温差大，9 月早晚偏凉，带保暖衣物；天气干燥多风，注意防晒防风、多喝水。</li>
+      <li>9 月 15 日–18 日使用 26 座 2+1 空调旅游车，9 月 14 日/19 日为接送普通车型。</li>
     </ul>
   </div>
 
@@ -353,78 +331,140 @@
     <div class="sheet-title" id="sheetTitle">景点</div>
     <div class="sheet-meta" id="sheetMeta"></div>
     <div class="sheet-desc" id="sheetDesc"></div>
-    <a class="sheet-btn" id="sheetBtn" href="#" target="_blank">在地图中打开</a>
+    <div id="sheetInfo"></div>
   </div>
 </div>
 
 <script>
 /* ---------- 行程数据 ---------- */
 var ITINERARY = [
-  {day:1, date:'09-14', color:'var(--c-dunhuang)', title:'仙居 → 杭州 → 敦煌', stay:'敦煌',
-   legs:[{ico:'✈', line:'杭州萧山 T4 → 敦煌莫高', meta:'CA1757 · 13:55 – 17:55'}],
-   events:[
-     {t:'上午', title:'仙居乘大巴至杭州', note:'需自行确认大巴班次，留足前往萧山机场的时间'},
-     {t:'13:55', title:'杭州萧山 T4 起飞 CA1757', note:'建议 11:30 前到机场', tag:'已出票', loc:'杭州萧山国际机场T4', desc:'国航直飞敦煌，建议提前 2 小时到达 T4 办理值机。'},
-     {t:'17:55', title:'抵达敦煌莫高机场', note:'取行李后前往市区，约 13km', desc:'敦煌莫高国际机场距市区约 13km，打车约 20 分钟。'},
-     {t:'晚上', title:'入住敦煌', note:'敦煌 ×2 晚'}
-   ]},
-  {day:2, date:'09-15', color:'var(--c-dunhuang)', title:'敦煌：莫高窟 · 鸣沙山', stay:'敦煌',
-   legs:[{ico:'🚗', line:'市区 → 莫高窟 → 鸣沙山', meta:'市内短途，各约 10–25km'}],
-   events:[
-     {t:'上午', title:'莫高窟', note:'需提前预约，按预约时段入场', tag:'需预约', loc:'莫高窟',
-      desc:'始建于公元 4 世纪，历经 10 个朝代 1000 多年开凿，现存 492 个有壁画塑像的洞窟，壁画 45000 多平方米、彩塑 3000 余身，是世界现存规模最大、内容最丰富的佛教石窟群。参观流程：先在数字展示中心观看主题影片，再乘摆渡车前往窟区，由讲解员带队参观 8 个洞窟。'},
-     {t:'下午', title:'鸣沙山月牙泉', note:'建议傍晚前入园，可看日落', loc:'鸣沙山月牙泉',
-      desc:'5A 级景区，位于敦煌城南 5 公里。鸣沙山因沙动成响得名，山体由红黄绿黑白五色细沙堆积，主峰海拔 1715 米。月牙泉被沙山环抱，泉水千年不涸、风沙不掩，形成「沙泉共生」奇观。可骑骆驼、滑沙，建议傍晚入园看日落。'},
-     {t:'晚上', title:'入住敦煌', note:''}
-   ]},
-  {day:3, date:'09-16', color:'var(--c-jiayuguan)', title:'敦煌 → 嘉峪关', stay:'嘉峪关',
-   legs:[{ico:'🚗', line:'敦煌 → 嘉峪关', meta:'约 370km · 车程约 4.5h'}],
-   events:[
-     {t:'上午', title:'敦煌博物馆', note:'免费，需预约；周一闭馆', tag:'免费·需预约', loc:'敦煌博物馆',
-      desc:'位于敦煌市鸣山北路，外观仿汉代长城城墙与烽火台，内部如石窟走廊，主题展览为《华戎交汇的都市》。免费参观但需提前预约，周一闭馆。'},
-     {t:'中午', title:'出发前往嘉峪关', note:'约 370km，车程约 4.5 小时'},
-     {t:'傍晚', title:'嘉峪关城楼', note:'视到达时间安排', loc:'嘉峪关关城',
-      desc:'明代长城最西端关隘，始建于明洪武五年（1372 年），有「天下第一雄关」之称，是保存最完整的古代军事防御体系。景区含关城、悬壁长城、长城第一墩三大核心景点。旺季门票 110 元。'},
-     {t:'晚上', title:'入住嘉峪关', note:'嘉峪关 ×1 晚'}
-   ]},
-  {day:4, date:'09-17', color:'var(--c-zhangye)', title:'嘉峪关 → 张掖 → 武威', stay:'武威',
+  {day:1, date:'2026-09-14', weekday:'周一', color:'var(--c-dunhuang)', title:'仙居 → 杭州 → 敦煌', stay:'敦煌',
+   weather:{text:'晴转多云', temp:'9℃ ～ 30℃'},
    legs:[
-     {ico:'🚗', line:'嘉峪关 → 张掖七彩丹霞', meta:'约 230km · 车程约 2.5h'},
-     {ico:'🚗', line:'张掖 → 武威', meta:'约 240km · 车程约 3h'}
+     {ico:'🚌', line:'仙居 → 杭州萧山机场', meta:'约 200km · 车程约 3h'},
+     {ico:'✈', line:'杭州萧山 T4 → 敦煌莫高', meta:'CA1757 · 13:55 – 17:55 · 飞行约 3h'},
+     {ico:'🚌', line:'敦煌莫高机场 → 市区酒店', meta:'约 13km · 车程约 20min'}
    ],
    events:[
-     {t:'07:00', title:'出发前往张掖七彩丹霞', note:'约 230km，车程约 2.5 小时'},
-     {t:'上午', title:'张掖七彩丹霞', note:'建议线上购票，选好入园时段', tag:'需购票', loc:'张掖七彩丹霞',
-      desc:'本次行程中最出片的地貌景观，彩色丘陵层层叠叠，红黄橙白相间。建议选上午时段入园，光线适合拍照。线上购票可选入园时段，省去现场排队。'},
-     {t:'中午', title:'出发前往武威', note:'约 240km，车程约 3 小时'},
-     {t:'晚上', title:'入住武威', note:'武威 ×1 晚'}
+     {t:'上午', title:'仙居乘大巴至杭州', note:'需提前确认大巴班次，留足前往萧山机场的时间'},
+     {t:'12:00', title:'萧山机场集合', note:'携带有效证件，提前 10 分钟抵达集合点'},
+     {t:'13:55', title:'杭州萧山 T4 起飞 CA1757', note:'', tag:'已出票', desc:'国航直飞敦煌，17:55 落地敦煌莫高机场。'},
+     {t:'17:55', title:'抵达敦煌莫高机场', note:'取行李后乘车前往酒店', desc:'敦煌莫高国际机场距市区约 13km，团队接送。'},
+     {t:'晚上', title:'晚餐 · 入住敦煌', note:'晚餐后可自由活动，推荐敦煌书局',
+      desc:'敦煌书局坐落于敦煌党河风情线，2022 年开业，获评全国最美书店，被誉为「纸上莫高窟」。整体复刻洞窟形制，飞天、藻井壁画元素遍布空间，馆藏两万五千余册敦煌主题书籍，藏经阁藏千余部敦煌遗书影印本。',
+      info:{
+        hours:'自由活动时间视酒店位置与个人安排',
+        tips:['党河风情线夜景不错，适合饭后散步','距市区酒店不远，可打车前往']
+      }
+     }
    ]},
-  {day:5, date:'09-18', color:'var(--c-wuwei)', title:'武威 → 兰州', stay:'兰州',
+  {day:2, date:'2026-09-15', weekday:'周二', color:'var(--c-dunhuang)', title:'敦煌：莫高窟 · 鸣沙山', stay:'敦煌',
+   weather:{text:'晴', temp:'10℃ ～ 31℃'},
    legs:[
-     {ico:'🚗', line:'武威 → 天梯山石窟', meta:'约 60km · 车程约 1h'},
-     {ico:'🚗', line:'武威 → 兰州', meta:'约 280km · 车程约 3.5h'}
+     {ico:'🚌', line:'市区酒店 → 莫高窟', meta:'约 25km · 车程约 30min'},
+     {ico:'🚌', line:'莫高窟 → 鸣沙山月牙泉', meta:'约 25km · 车程约 30min'}
    ],
    events:[
-     {t:'上午', title:'鸠摩罗什寺', note:'', loc:'鸠摩罗什寺',
-      desc:'位于武威市区，为纪念鸠摩罗什而建，是武威重要的佛教文化遗址，寺内氛围清幽。'},
-     {t:'上午', title:'天梯山石窟', note:'约 60km，车程约 1 小时；需预约，周一闭馆', tag:'需预约', loc:'天梯山石窟',
-      desc:'位于武威城南约 60km，中国早期石窟之一，被称为「石窟鼻祖」，开凿于北凉时期。需提前预约，周一闭馆。'},
-     {t:'下午', title:'出发前往兰州', note:'约 280km，车程约 3.5 小时'},
-     {t:'傍晚', title:'黄河风情线', note:'中山桥、黄河母亲像一带夜游', loc:'兰州中山桥',
-      desc:'含中山桥、黄河母亲雕塑等地标，是兰州的城市名片。建议傍晚抵达后沿黄河边散步，看中山桥夜景。'},
-     {t:'晚上', title:'入住兰州', note:'兰州 ×1 晚'}
+     {t:'上午', title:'莫高窟', note:'游览约 2 小时，按预约场次入场', tag:'需预约',
+      desc:'始建于公元 4 世纪，历经 10 个朝代 1000 多年开凿，现存 492 个有壁画塑像的洞窟，壁画 45000 多平方米、彩塑 3000 余身，是世界现存规模最大、内容最丰富的佛教石窟群。',
+      info:{
+        tickets:'A 票 238 元/人，B 票 100 元/人（以实际出票为准）',
+        hours:'旺季 08:00–18:00，15:30 停售，16:10 停止入场',
+        tips:['洞窟内禁止拍照摄像','团队按预约场次入场，参观顺序可能因莫高窟时间调整','跟团游览约 2 小时，由景区讲解员带队']
+      }
+     },
+     {t:'中午', title:'中餐', note:'团餐'},
+     {t:'下午', title:'鸣沙山月牙泉', note:'游览约 1.5 小时',
+      desc:'5A 级景区，鸣沙山因沙动成响得名，山为流沙积成，不同光照下沙分红、黄、绿、白、黑五色。月牙泉处于鸣沙山环抱之中，形酷似一弯新月，有「沙漠第一泉」之称。',
+      info:{
+        tickets:'110 元/人',
+        hours:'旺季 05:00–20:30',
+        tips:['风沙大、沙粒细，做好手机相机防沙','骑骆驼时不要大声尖叫或打伞，抓紧扶手，不要转身拍照','滑沙时不要随身携带相机、手机等贵重物品','自费娱乐项目较多，尽量选择安全性较高的项目']
+      }
+     },
+     {t:'晚上', title:'晚餐 · 入住敦煌', note:'敦煌 ×2 晚'}
    ]},
-  {day:6, date:'09-19', color:'var(--c-lanzhou)', title:'兰州 → 杭州 → 仙居', stay:'—',
+  {day:3, date:'2026-09-16', weekday:'周三', color:'var(--c-jiayuguan)', title:'敦煌 → 嘉峪关', stay:'嘉峪关',
+   weather:{text:'晴', temp:'13℃ ～ 27℃'},
    legs:[
-     {ico:'🚗', line:'兰州市区 → 中川机场', meta:'约 60–70km · 车程约 1h'},
-     {ico:'✈', line:'兰州中川 T3 → 杭州萧山 T3', meta:'HU7887 · 11:50 – 14:45'},
-     {ico:'🚄', line:'杭州西 → 仙居', meta:'约 1h15m · 待购票'}
+     {ico:'🚌', line:'敦煌市区 → 嘉峪关', meta:'约 370km · 车程约 4.5h'}
    ],
    events:[
-     {t:'08:30', title:'出发前往兰州中川机场', note:'约 60–70km，建议留足 1 小时以上'},
-     {t:'11:50', title:'兰州中川 T3 起飞 HU7887', note:'', tag:'已出票', loc:'兰州中川国际机场T3', desc:'海航直飞杭州，11:50 起飞，14:45 落地杭州萧山 T3。'},
+     {t:'上午', title:'敦煌博物馆', note:'周一闭馆，参观约 1.5 小时', tag:'免费·需预约',
+      desc:'位于敦煌市城南，以展示丝绸之路都会敦煌的历史文物及莫高窟内的珍贵文物为主，是了解敦煌历史和莫高窟艺术的好去处。'},
+     {t:'中午', title:'中餐后乘车赴嘉峪关', note:'约 370km，车程约 4.5 小时'},
+     {t:'傍晚', title:'嘉峪关关城', note:'参观约 1.5 小时',
+      desc:'万里长城最西端，号称「天下第一雄关」，明长城西端起点，保存完整的明代军事关隘。登城楼可眺望祁连雪山与大漠戈壁，感受古丝路雄关气势。',
+      info:{
+        tickets:'110 元/人 + 区间车 20 元/人',
+        hours:'日间 08:00–18:30',
+        tips:['登城楼眺望祁连雪山，日落时分景色最佳','跟团参观约 1.5 小时，跟随导游讲解']
+      }
+     },
+     {t:'傍晚', title:'悬壁长城', note:'参观约 1 小时 · 距关城约 8km，车程约 15min',
+      desc:'修筑于黑山陡峭山脊，长城凌空倒挂，攀登而上可纵览戈壁旷野风光，感受长城边塞的雄浑壮阔。',
+      info:{
+        tickets:'区间车 15 元/人',
+        tips:['沿山脊攀登，穿舒适的鞋','与关城联票参观']
+      }
+     },
+     {t:'晚上', title:'晚餐 · 入住嘉峪关', note:'嘉峪关 ×1 晚'}
+   ]},
+  {day:4, date:'2026-09-17', weekday:'周四', color:'var(--c-zhangye)', title:'嘉峪关 → 张掖 → 武威', stay:'武威',
+   weather:{text:'晴', temp:'12℃ ～ 27℃'},
+   legs:[
+     {ico:'🚌', line:'嘉峪关 → 张掖七彩丹霞', meta:'约 230km · 车程约 2.5h'},
+     {ico:'🚌', line:'张掖七彩丹霞 → 武威', meta:'约 280km · 车程约 3.5h'}
+   ],
+   events:[
+     {t:'上午', title:'张掖七彩丹霞地质公园', note:'游览约 2 小时', tag:'需购票',
+      desc:'素有「彩色丘陵」之称，被《中国地理》评选为最美丽的丹霞地貌。中国丹霞地貌发育最大最好、地貌造型最丰富的地区之一，五颜六色顺山起伏如波浪。',
+      info:{
+        tickets:'70 元/人 + 区间车 38 元/人',
+        tips:['1 号观景台最大，可看大扇贝、众僧拜佛','3 号七彩屏是国家地理杂志取景处','4 号七彩虹霞台公认最好看，日落时最佳，可看刀山火海','5 号七彩锦绣台可看五花肉景观','地貌脆弱，踩上一脚几百年无法恢复，勿踩红色地貌']
+      }
+     },
+     {t:'中午', title:'中餐后乘车赴武威', note:'约 280km，车程约 3.5 小时'},
+     {t:'晚上', title:'晚餐 · 入住武威', note:'武威 ×1 晚'}
+   ]},
+  {day:5, date:'2026-09-18', weekday:'周五', color:'var(--c-wuwei)', title:'武威 → 兰州', stay:'兰州',
+   weather:{text:'阴', temp:'10℃ ～ 23℃'},
+   legs:[
+     {ico:'🚌', line:'武威市区 → 鸠摩罗什寺', meta:'市区内 · 车程约 10min'},
+     {ico:'🚌', line:'鸠摩罗什寺 → 天梯山石窟', meta:'约 60km · 车程约 1h'},
+     {ico:'🚌', line:'天梯山石窟 → 兰州', meta:'约 260km · 车程约 4h'}
+   ],
+   events:[
+     {t:'上午', title:'鸠摩罗什寺', note:'游览约 1.5 小时',
+      desc:'坐落于武威凉州区，全世界唯一以鸠摩罗什命名的寺院，始建于后凉时期，是河西走廊佛教东传的重要地标。鸠摩罗什在此驻留十七年，研习汉语，为后世译经打下根基，《金刚经》《法华经》等经典皆出自其译笔。'},
+     {t:'上午', title:'天梯山石窟', note:'游览约 1.5 小时，周一闭馆', tag:'需预约',
+      desc:'坐落于武威城南张义镇，别称凉州石窟，被誉为「石窟鼻祖」，始建于北凉沮渠蒙逊时期，距今一千六百余年，是「凉州模式」石窟艺术的发源地。',
+      info:{
+        tickets:'30 元/人',
+        tips:['跟团游览约 1.5 小时','凉州模式对云冈、龙门石窟有深远影响']
+      }
+     },
+     {t:'中午', title:'中餐后乘车赴兰州', note:'约 260km，车程约 4 小时'},
+     {t:'傍晚', title:'黄河风情线', note:'',
+      desc:'兰州是黄河唯一穿城而过的省会城市，沿黄河两岸开通了东西 50 多公里的滨河路，打造了全国唯一的城市内黄河风情线，园中有园、景中有景。',
+      info:{
+        tips:['可沿黄河边散步，看中山桥、黄河母亲雕塑','傍晚亮灯后氛围感最佳']
+      }
+     },
+     {t:'晚上', title:'晚餐 · 入住兰州', note:'兰州 ×1 晚'}
+   ]},
+  {day:6, date:'2026-09-19', weekday:'周六', color:'var(--c-lanzhou)', title:'兰州 → 杭州 → 仙居', stay:'—',
+   weather:{text:'小雨转雨', temp:'12℃ ～ 22℃'},
+   legs:[
+     {ico:'🚌', line:'兰州酒店 → 中川机场', meta:'约 60–70km · 车程约 1h'},
+     {ico:'✈', line:'兰州中川 T3 → 杭州萧山 T3', meta:'HU7887 · 11:50 – 14:45 · 飞行约 3h'},
+     {ico:'🚄', line:'杭州西 → 仙居站', meta:'D3349 · 17:48 – 21:03 · 约 1h15m'}
+   ],
+   events:[
+     {t:'08:40', title:'酒店大厅集合，前往中川机场', note:'约 60–70km，预留充足时间'},
+     {t:'11:50', title:'兰州中川 T3 起飞 HU7887', note:'', tag:'已出票', desc:'海航直飞杭州，11:50 起飞，14:45 落地杭州萧山 T3。'},
      {t:'14:45', title:'抵达杭州萧山 T3', note:'取行李后前往杭州西站'},
-     {t:'17:48', title:'杭州西 → 仙居（动车）', note:'建议班次，待购票', tag:'待购票', loc:'杭州西站', desc:'杭温高铁直达仙居，约 1 小时 15 分。建议买 17:48 之后班次，衔接更从容。'}
+     {t:'17:48', title:'杭州西 → 仙居站（D3349）', note:'17:48 发车，21:03 到达', tag:'待购票', desc:'D3349 次列车，杭州西 17:48 发车，仙居站 21:03 到达，历时约 1 小时 15 分。'}
    ]}
 ];
 
@@ -436,8 +476,12 @@ var ITINERARY = [
     html += '<div class="day">';
     html += '<div class="day-dot" style="background:'+d.color+'"></div>';
     html += '<div class="day-head" onclick="toggleDay(this)">';
-    html += '<div><div class="day-title" style="color:'+d.color+'">D'+d.day+' · '+d.title+'</div>';
-    html += '<div class="day-date">'+d.date+'　住：'+d.stay+'</div></div>';
+    html += '<div><div class="day-title" style="color:'+d.color+'">'+d.date+' '+d.weekday+' · '+d.title+'</div>';
+    html += '<div class="day-date">住：'+d.stay+'</div>';
+    if(d.weather){
+      html += '<div class="day-weather">🌤 '+d.weather.text+' '+d.weather.temp+'</div>';
+    }
+    html += '</div>';
     html += '<span class="day-toggle">▼</span></div>';
 
     html += '<div class="day-route"><div class="day-route-inner">';
@@ -447,18 +491,13 @@ var ITINERARY = [
         html += '<div class="leg-line">'+l.line+'</div><div class="leg-meta">'+l.meta+'</div></div></div>';
       });
     }
-    var locs = d.events.filter(function(e){return e.loc}).map(function(e){return e.loc});
-    if(locs.length){
-      var url = 'https://api.map.baidu.com/direction?origin=&destination='+encodeURIComponent(locs[locs.length-1])+'&mode=driving&region=全国';
-      html += '<a class="day-route-btn" href="'+url+'" target="_blank">一键打开全天导航</a>';
-    }
     html += '</div></div>';
 
     d.events.forEach(function(e){
       html += '<div class="ev"><div class="ev-time">'+e.t+'</div><div class="ev-body">';
       html += '<div class="ev-title">';
       if(e.desc){
-        var data = encodeURIComponent(JSON.stringify({t:e.title, n:e.note||'', d:e.desc, l:e.loc||''}));
+        var data = encodeURIComponent(JSON.stringify({t:e.title, n:e.note||'', d:e.desc, info:e.info||null}));
         html += '<span class="loc" onclick="openSheet(\''+data+'\')">'+e.title+'</span>';
       } else {
         html += e.title;
@@ -484,13 +523,23 @@ function openSheet(dataStr){
   document.getElementById('sheetTitle').textContent = d.t;
   document.getElementById('sheetMeta').textContent = d.n;
   document.getElementById('sheetDesc').textContent = d.d;
-  var btn = document.getElementById('sheetBtn');
-  if(d.l){
-    btn.style.display = 'inline-block';
-    btn.href = 'https://api.map.baidu.com/geocoder?address='+encodeURIComponent(d.l)+'&output=html&src=webapp.travel';
-  } else {
-    btn.style.display = 'none';
+
+  var infoBox = document.getElementById('sheetInfo');
+  var html = '';
+  if(d.info){
+    if(d.info.tickets){
+      html += '<div class="info-block"><h4>门票信息</h4><p>'+d.info.tickets+'</p></div>';
+    }
+    if(d.info.hours){
+      html += '<div class="info-block"><h4>开放时间</h4><p>'+d.info.hours+'</p></div>';
+    }
+    if(d.info.tips && d.info.tips.length){
+      html += '<div class="info-block"><h4>必玩攻略</h4><ul>';
+      d.info.tips.forEach(function(t){ html += '<li>'+t+'</li>'; });
+      html += '</ul></div>';
+    }
   }
+  infoBox.innerHTML = html;
   document.getElementById('overlay').classList.add('show');
 }
 function closeSheet(e){
@@ -512,7 +561,7 @@ function closeSheet(e){
       else if(e.t==='下午'){ hh=14; }
       else if(e.t==='傍晚'){ hh=18; }
       else if(e.t==='晚上'){ hh=20; }
-      events.push({ time:new Date(2026, +md[0]-1, +md[1], hh, mm, 0), title:'D'+d.day+' · '+e.title });
+      events.push({ time:new Date(+md[0], +md[1]-1, +md[2], hh, mm, 0), title:d.date+' · '+e.title });
     });
   });
   events.sort(function(a,b){return a.time-b.time});
